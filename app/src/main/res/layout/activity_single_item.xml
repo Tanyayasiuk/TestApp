@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+    <data>
+        <import type = "android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.yasiuk.tanya.testapp.ui.singleItem.SingleItemViewModel"/>
+    </data>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/divider_light"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/item_start_end_padding"
+        android:layout_marginStart="@dimen/item_start_end_padding"
+        android:hint="title"
+        android:text="@{viewModel.title}"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textSize="@dimen/item_header_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_layout"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/progress_bar"
+            android:indeterminateOnly="true" />
+        <ImageView
+            android:id="@+id/image_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/standart_padding"
+            android:layout_marginStart="@dimen/standart_padding"
+            android:layout_marginTop="@dimen/standart_padding"
+            android:layout_gravity="center"
+            android:src="@{viewModel.url}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/item_start_end_padding"
+        android:layout_marginStart="@dimen/item_start_end_padding"
+        android:layout_marginTop="@dimen/item_start_end_padding"
+        android:hint="body"
+        android:textSize="@dimen/item_body_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_layout" />
+</android.support.constraint.ConstraintLayout>
+</layout>
